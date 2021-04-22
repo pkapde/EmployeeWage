@@ -1,6 +1,6 @@
 class EmployeePayrollData{
     startDate;
-    
+
     //constructor
     constructor(...params){
         this.id = params[0];
@@ -31,10 +31,14 @@ class EmployeePayrollData{
         this._gender = gender;
     }
     get name(){
-        return this._name;
+        this._name = _name;
     }
     set name(name){
+        let nameRegex =RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if(nameRegex.test(name)){
         this._name = name;
+        }
+        else throw 'Name Is Incorrect';
     }
 
     //toString
@@ -48,8 +52,11 @@ class EmployeePayrollData{
 
 let employeePayrollData = new EmployeePayrollData(1,"Mark",30000);
 console.log(employeePayrollData.toString());
-employeePayrollData.name = "john";
-console.log(employeePayrollData.toString());
-
+try{
+    employeePayrollData.name = "john";
+    console.log(employeePayrollData.toString());
+}catch(e){
+    console.error(e);
+}
 let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date());
 console.log(newEmployeePayrollData.toString());
