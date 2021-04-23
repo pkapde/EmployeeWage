@@ -9,6 +9,7 @@ class EmployeePayrollData{
         this.gender = params[3];
         this.startDate = params[4];
         this.pinCode = params[5];
+        this.email = params[6];
 
     }
 
@@ -86,7 +87,7 @@ class EmployeePayrollData{
         const options = {year: 'numeric', month: 'numeric', day:'numeric'};
         const empDate = this.startDate == undefined ? "undefined":
                         this.startDate.toLocaleDateString("en-IN",options);
-        return "id = "+this.id+",name = "+this.name+",salary = "+this.salary +",gender = "+this.gender+",start date = "+empDate+",pinCode = "+this._pinCode;
+        return "id = "+this.id+",name = "+this.name+",salary = "+this.salary +",gender = "+this.gender+",start date = "+empDate+",pinCode = "+this._pinCode+",email = "+this._email;
     }
 }
 
